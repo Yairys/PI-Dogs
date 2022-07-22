@@ -1,0 +1,18 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+export default function Landing(){
+    return (
+
+        <div>
+            <div>
+                <h1>DOGS APP</h1>
+            </div>
+            <img/>
+            <Link to='/dogs'>
+                <button> LETS GO! </button>
+            </Link>
+
+        </div>
+    )
+}
