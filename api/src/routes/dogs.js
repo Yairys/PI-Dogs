@@ -9,7 +9,8 @@ const {getAllDogs} = require ("../controller/controller")
 router.get('/', async (req, res) => {
     const {name} = req.query
     const allDogs = await getAllDogs();
-
+  
+  
     try{
         if (name){
         let dogName= await allDogs.filter(e =>e.name.toLowerCase().includes(name.toLowerCase()))
@@ -23,8 +24,7 @@ router.get('/', async (req, res) => {
     }
     
     
-});
-
+  });
 
 
 router.get('/:id', async (req, res)=>{
@@ -69,6 +69,9 @@ router.post('/create', async (req, res) => {
     }
     
 });
+
+
+
 
 
 

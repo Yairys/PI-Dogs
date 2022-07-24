@@ -1,84 +1,125 @@
-import React from "react";
+import React, { useState } from "react";
+import SelectList from "../SelectList/SelectList";
 
-export default function CreateDog({create}){
+export default function Form(){
+//si tengo los temperamentos en algun estado de redux puedo llamarloa con useSelector
+//abajo en el form renderizo un select y dentro se mapea el estado
 
-    let [input, setInput] = React.useState({
+//el estado local es un obj que se envia al servidor que lo transforma en json
+  const[dog, setDog] = useState({
     breed:'',
-    Min_Weight:'',
-    Max_Weight:'',
-    Min_Height:'',
-    Max_Height:'',
-    Life_Span:''
+    min_weight:'',
+    max_weight:'',
+    min_height:'',
+    max_height:'',
+    life_span:'',
+    temperaments:[]
     })
 
+    const [disabledButton, setdisabledButton] =useState(true)
+
+    //El form Se completa o modifica--> se envia al back
     let handleChange = (e)=>{
-        e.preventDefault();
-            console.log(e);
-        
-        setInput((prev) =>({...prev, [e.target.name]:e.target.value}))
+      e.preventDefault();
+
+      
+      //setInput((prev) =>({...prev, [e.target.name]:e.target.value}))
     }
+    let handleTemperamets = (e)=>{
+    };
 
     let handleSubmit = (e)=>{ //le digo que reciba el evento
 		e.preventDefault(); //quiero que me guarde la info
-		create(input);	//	dispatch(createUser(input))   // si lo hago con connect aqui solo lo pongo  y asi recibe props
-		setInput({
-        breed:'',
-        Min_Weight:'',
-        Max_Weight:'',
-        Min_Height:'',
-        Max_Height:'',
-        Life_Span:''})
-        e.target.reset();
-		
-	}
+	  }
 
-    return (
-        <React.Fragment>
-
-        <div><h1>AQUI PUEDES CREAR UN PERRO</h1></div>
-        <hr/>
-        <div>Create Dog</div>
-        <br/>
-        
-        <form onSubmit = {e =>handleSubmit(e)}> {/* debo crear una fn para el handleSubmit */}
-          <div>
-              <label>Breed</label>
-              <input type={'text'} name= {'breed'} value={input.breed} onChange={(e)=>handleChange(e)} />
-          </div>
-          <div>
-              <label>Weight</label> 
-          </div>
-          <div>
-              <label>Min </label>
-              <input type={'text'} name= {'Min_Weight'} value={input.Min_Weight} onChange={(e)=>handleChange(e)} />
-          </div>
-          <div>
-              <label>Max </label>
-              <input type={'text'} name= {'Max_Weight'} value={input.Max_Weight} onChange={(e)=>handleChange(e)} />
-          </div>
-          <div>
-              <label>Height</label>
-          </div>
-          <div>
-              <label>Min</label>
-              <input type={'text'}  name= {' Min_Height'} value={input. Min_Height} onChange={(e)=>handleChange(e)} />
-          </div>
-          <div>
-              <label>Max</label>
-              <input type={'text'} name= {'Max_Height'} value={input.Max_Height} onChange={(e)=>handleChange(e)} />
-          </div>
-          <div>
-              <label>Life Span</label>
-              <input type={'text'} name= {'Life_Span'} value={input.Life_Span} onChange={(e)=>handleChange(e)} />
-          </div>
-          <input type= {'submit'} value = {'CREATE DOG'}/> {/* quiero que cuando de clic en esto haga submit, debo pasar esa funcion al form con onsubmit handleSubmit */}
-		
-        </form>
-
-        </React.Fragment>
+    let validate = (datos)=>{
+    };
+  
+    return(
+      <React.Fragment>
+     
+      {/* <div>
+      <div><h1>AQUI PUEDES CREAR UN PERRO</h1></div>
+      <hr/>
+      <div>Create Dog</div>
+      <br/>
+      
+      <form onSubmit = {e =>handleSubmit(e)}> */}  {/* debo crear una fn para el handleSubmit */}
+       {/* <div>
+            <label>Breed</label>
+            <input 
+            type={'text'} 
+            name= {'breed'} 
+            value={input.breed} 
+            placeholder='Dogs Breed'
+            onChange={handleChange} />
+        </div>
+        <div>
+            <label>Weight</label> 
+        </div>
+        <div>
+            <label>Min </label>
+            <input 
+            type={'text'} 
+            name= {'min_weight'} 
+            value={input.min_weight} 
+            placeholder='Min'
+            onChange={handleChange} />
+        </div>
+        <div>
+            <label>Max </label>
+            <input 
+            type={'text'} 
+            name= {'max_weight'} 
+            value={input.max_weight}
+            placeholder='Max' 
+            onChange={handleChange} />
+        </div>
+        <div>
+            <label>Height</label>
+        </div>
+        <div>
+            <label>Min</label>
+            <input 
+            type={'text'}  
+            name= {'min_height'} 
+            value={input.min_height} 
+            onChange={handleChange} />
+        </div>
+        <div>
+            <label>Max</label>
+            <input 
+            type={'text'} 
+            name= {'max_height'} 
+            value={input.max_height} 
+            onChange={handleChange} />
+        </div>
+        <div>
+            <label>Life Span</label>
+            <input 
+            type={'text'} 
+            name= {'life_span'} 
+            value={input.life_span} 
+            onChange={handleChange} />
+        </div>
+        <div>
+            <label>Temperament</label>
+            <select 
+              name= "temperaments" 
+              id="">
+              <option 
+              value={dog.temperaments} 
+              onChange={handleTemperamets}>Select a Temperament</option>
+            </select>
+        </div>
+        <input 
+        type= {'submit'} 
+        value = {'CREATE DOG'}/> */} {/* quiero que cuando de clic en esto haga submit, debo pasar esa funcion al form con onsubmit handleSubmit */}
+  
+    {/*   </form>
+    </div>  */}
+      </React.Fragment>
     )
 }
 
 
-/*
-export default connect(null, mapDispatchToProps)(CreateUser) */

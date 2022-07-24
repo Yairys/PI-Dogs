@@ -10,7 +10,6 @@ export default function Filter (){
       <form className="form"/>
       <p>Order Dogs:</p>  
       </div>
-
     <div>
     <input
       /* onClick={handleSubmit} */
@@ -19,7 +18,6 @@ export default function Filter (){
       id="A to Z"
       name="order"
       value="A to Z" />
-
     </div>
 
     <div>

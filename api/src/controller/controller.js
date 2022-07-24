@@ -4,6 +4,7 @@ const { Op } = require("sequelize");
 
 
 const getAllDogs = async()=>{
+    
 
     const resultApi = await axios.get('https://api.thedogapi.com/v1/breeds')
         const apiDogs = resultApi.data.map(dog =>{
@@ -28,7 +29,7 @@ const getAllDogs = async()=>{
             const allDogs= [...apiDogs, ...dbDogs]
 
             return allDogs
-}
+            }
 
 
 const preCharge= async ()=>{
