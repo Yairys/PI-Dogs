@@ -56,12 +56,12 @@ export default function CreateDog(){
     }
 
 
-    /* function handleDelete(el){
+     function handleDelete(el){
         setInput({
             ...input,
             temperament: input.temperament.filter(e=> e !== el)
         })
-    } */
+    } 
 
 
     function handleSubmit(e){
@@ -169,7 +169,7 @@ export default function CreateDog(){
           type={'number'} 
           name= {'max_lifeSpan'} 
           value={input.max_lifeSpan} 
-          
+
           placeholder={'Min'}
           onChange={handleChange} 
           />
