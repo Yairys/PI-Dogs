@@ -17,22 +17,33 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true
     },
-    height:{
+    max_height:{
       type:DataTypes.STRING,
       allowNull: false
     },
-    weight:{
+    min_height:{
       type:DataTypes.STRING,
       allowNull: false
     },
-    lifeSpan:{
+    max_weight:{
+      type:DataTypes.STRING,
+      allowNull: false
+    },
+    min_weight:{
+      type:DataTypes.STRING,
+      allowNull: false
+    },
+    max_lifeSpan:{
+      type:DataTypes.STRING,
+    },
+    min_lifeSpan:{
       type:DataTypes.STRING,
     },
     create:{
       type:DataTypes.BOOLEAN,
       defaultValue: true,
     },
-    img: {
+    image: {
       type:DataTypes.STRING,
       defaultValue: "https://img.freepik.com/fotos-premium/tres-perros-blanco_87557-12571.jpg?w=2000"
      },

@@ -1,125 +1,219 @@
-import React, { useState } from "react";
-import SelectList from "../SelectList/SelectList";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {validate} from './validate'
+import { getTemps } from '../../Redux/Actions';
+import{createDog} from '../../Redux/Actions'
 
-export default function Form(){
-//si tengo los temperamentos en algun estado de redux puedo llamarloa con useSelector
-//abajo en el form renderizo un select y dentro se mapea el estado
 
-//el estado local es un obj que se envia al servidor que lo transforma en json
-  const[dog, setDog] = useState({
-    breed:'',
-    min_weight:'',
-    max_weight:'',
-    min_height:'',
-    max_height:'',
-    life_span:'',
-    temperaments:[]
+export default function CreateDog(){
+
+ const dispatch = useDispatch()
+  useEffect(() => {
+  
+    dispatch(getTemps());
+  }, []);  
+
+    
+    const temperaments = useSelector((state)=> state.temperaments)
+    const [errorButton, setErrorButton] = useState(true)
+    const [errors, setErrors] = useState({})
+    const [loading, setLoading] = useState(false)
+
+    const [input, setInput] = useState({
+      name:'',
+      min_weight:'',
+      max_weight:'',
+      min_height:'',
+      max_height:'',
+      min_lifeSpan:'',
+      max_lifeSpan:'',
+      image:'', 
+      temperament: []
+      
+      }) 
+
+
+    function handleChange(e){
+
+        setInput({
+        ...input,
+        [e.target.name] : e.target.value
+        })
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+
+        }));
+    }
+
+    let handleSelect = (e)=>{
+      setInput({
+        ...input,
+        temperament: [...new Set([...input.temperament, e.target.value])]
+      
     })
 
-    const [disabledButton, setdisabledButton] =useState(true)
-
-    //El form Se completa o modifica--> se envia al back
-    let handleChange = (e)=>{
-      e.preventDefault();
-
-      
-      //setInput((prev) =>({...prev, [e.target.name]:e.target.value}))
     }
-    let handleTemperamets = (e)=>{
-    };
 
-    let handleSubmit = (e)=>{ //le digo que reciba el evento
-		e.preventDefault(); //quiero que me guarde la info
-	  }
 
-    let validate = (datos)=>{
-    };
-  
+    /* function handleDelete(el){
+        setInput({
+            ...input,
+            temperament: input.temperament.filter(e=> e !== el)
+        })
+    } */
+
+
+    function handleSubmit(e){
+        e.preventDefault()
+        setErrors(validate({
+          ...input,
+          [e.target.name]: e.target.value
+          }))
+          console.log(input)
+          if(Object.keys(errors).length===0){ 
+            alert('Enviando formulario')
+          }else{
+            return;
+          }
+        setLoading(true)
+        dispatch(createDog(input))         
+    }
+    
+
     return(
-      <React.Fragment>
-     
-      {/* <div>
-      <div><h1>AQUI PUEDES CREAR UN PERRO</h1></div>
-      <hr/>
-      <div>Create Dog</div>
-      <br/>
-      
-      <form onSubmit = {e =>handleSubmit(e)}> */}  {/* debo crear una fn para el handleSubmit */}
-       {/* <div>
-            <label>Breed</label>
+      <div>
+        <h2>Your dog's breed isn't listed?... You can include it here</h2>
+        <form onSubmit = {handleSubmit}> 
+          <div>
+          <label>Breed:</label> 
             <input 
+            autocomplete="off"
+            //className={errors && 'danger'}
             type={'text'} 
-            name= {'breed'} 
-            value={input.breed} 
-            placeholder='Dogs Breed'
-            onChange={handleChange} />
-        </div>
-        <div>
-            <label>Weight</label> 
-        </div>
-        <div>
-            <label>Min </label>
-            <input 
-            type={'text'} 
-            name= {'min_weight'} 
-            value={input.min_weight} 
-            placeholder='Min'
-            onChange={handleChange} />
-        </div>
-        <div>
-            <label>Max </label>
-            <input 
-            type={'text'} 
-            name= {'max_weight'} 
-            value={input.max_weight}
-            placeholder='Max' 
-            onChange={handleChange} />
-        </div>
-        <div>
-            <label>Height</label>
-        </div>
-        <div>
-            <label>Min</label>
-            <input 
-            type={'text'}  
-            name= {'min_height'} 
-            value={input.min_height} 
-            onChange={handleChange} />
-        </div>
-        <div>
-            <label>Max</label>
-            <input 
-            type={'text'} 
-            name= {'max_height'} 
-            value={input.max_height} 
-            onChange={handleChange} />
-        </div>
-        <div>
-            <label>Life Span</label>
-            <input 
-            type={'text'} 
-            name= {'life_span'} 
-            value={input.life_span} 
-            onChange={handleChange} />
-        </div>
-        <div>
-            <label>Temperament</label>
-            <select 
-              name= "temperaments" 
-              id="">
-              <option 
-              value={dog.temperaments} 
-              onChange={handleTemperamets}>Select a Temperament</option>
+            name= {'name'} 
+            value={input.name} 
+            placeholder="Type the Dog's Breed"
+            onChange={handleChange} 
+            /* required={true} */
+            />
+          {errors.name?  (<span>{errors.name}</span>): (false)}  
+            </div>
+
+
+            <div>
+              <label>Weight:</label> 
+          </div>
+          <div>
+          <input 
+          //className={errors && 'danger'}
+          type={'number'} 
+          name= {'min_weight'} 
+          value={input.min_weight} 
+          placeholder={'Min'} 
+          onChange={handleChange} 
+          /* required={true} */ />
+          {errors.min_weight?  (<span>{errors.min_weight}</span>): ('')}
+          </div>
+          
+          <div>
+          <input 
+          //className={errors && 'danger'}
+          type={'number'} 
+          name= {'max_weight'} 
+          value={input.max_weight} 
+          placeholder={'Max'} 
+          onChange={handleChange} 
+         /*  required={true} */ />
+           {errors.max_weight?  (<span>{errors.max_weight}</span>): ('')}
+          </div>
+          <div>
+              <label>Height:</label>
+          </div>
+          <div>
+          <input 
+          //className={errors && 'danger'}
+          type={'number'} 
+          name= {'min_height'} 
+          value={input.min_height} 
+          placeholder={'Min'}
+          onChange={handleChange} 
+          /* required={true} */ />
+           {errors.min_height?  (<span>{errors.min_height}</span>): ('')}
+          </div>
+          <div>
+          <input 
+          //className={errors && 'danger'}
+          type={'number'} 
+          name= {'max_height'} 
+          value={input.max_height} 
+          placeholder={'Max'}
+          onChange={handleChange} 
+          /* required={true} */ />
+           {errors.max_height?  (<span>{errors.max_height}</span>): ('')}
+          </div>
+          <div>
+          <input 
+          //className={errors && 'danger'}
+          type={'number'} 
+          name= {'min_lifeSpan'} 
+          value={input.min_lifeSpan} 
+          placeholder={'Min'}
+          onChange={handleChange} 
+           />
+          {errors.min_lifeSpan?  (<span>{errors.min_lifeSpan}</span>): ('')}
+          </div>
+          <div>
+          <input 
+          //className={errors && 'danger'}
+          type={'number'} 
+          name= {'max_lifeSpan'} 
+          value={input.max_lifeSpan} 
+          placeholder={'Min'}
+          onChange={handleChange} 
+          />
+          {errors.max_lifeSpan?  (<span>{errors.max_lifeSpan}</span>): ('')}
+          </div>
+          <div>
+          <label>Image URL: </label>
+          <input 
+          autocomplete="off" 
+          //className={errors && 'danger'}
+           type="url"
+          name= {'image'} 
+          value={input["image"]}
+          placeholder={'https://'}
+          onChange={handleChange} 
+          />
+           {errors.image?  (<span>{errors.image}</span>): ('')}
+          </div>
+
+
+          <div>
+            <label>Temperaments </label>
+            <select onChange={handleSelect}>
+              
+              <option value='all'>Temperaments</option>
+                {temperaments.map((temp) => (
+              <option value={temp.id} key={temp.id}>{temp.name}</option>))}
             </select>
-        </div>
-        <input 
-        type= {'submit'} 
-        value = {'CREATE DOG'}/> */} {/* quiero que cuando de clic en esto haga submit, debo pasar esa funcion al form con onsubmit handleSubmit */}
+          </div>
+
+
+            <button
+            type="submit"
+           /* disabled={errorButton} */  
+            >Create
+            </button>
+
+
+
+		
+      </form>
+
+      </div>)
   
-    {/*   </form>
-    </div>  */}
-      </React.Fragment>
-    )
-}
+                }
+
 
 

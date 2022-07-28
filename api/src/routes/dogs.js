@@ -45,30 +45,6 @@ router.get('/:id', async (req, res)=>{
 
     
 
-//CREAR NUEVO PERRO
-
-router.post('/create', async (req, res) => {
-    const { name, height, weight, lifeSpan, temperament} =req.body  
-     
-    if(!name || !height || !weight || !temperament ){
-        res.send({msg:"missing data"})
-    }
-    try{
-        const newDog = await Dog.create({ name, height, weight, lifeSpan})
-
-        newDog.addTemperament(temperament);
-        /*  const aux = Dog.findById(newDog,{
-            include: [{ model : Temperament}],
-        })   */
-
-        console.log(aux)
-       res.json("newDog")
-
-    }catch(err){
-        res.json(err)
-    }
-    
-});
 
 
 

@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 
 
 
+
  const DogsCard= (props)=>{
 
   const dispatch = useDispatch()
-  const allDogs = useSelector((state)=> state.dogs)
-  //const loading = useSelector((state) =state.loading)
+  const dogs = useSelector((state)=> state.dogs)
   const [page, setPage] = useState(1)
   
   let dogsOnPage = 8
-  let pagesRequired = Math.ceil(allDogs.length / 8)
+  let pagesRequired = Math.ceil(dogs.length / 8)
   let pages = []
 
   for (let i =1; i<= pagesRequired; i++){
@@ -29,11 +29,12 @@ import { Link } from "react-router-dom";
   }
    useEffect(()=>{
       dispatch(getDogs())
+      
   },[dispatch])  
   
   useEffect(()=>{
     setPage(1)
-},[allDogs])    
+},[dogs])    
 
 
    function handleClick(e){
@@ -43,6 +44,8 @@ import { Link } from "react-router-dom";
   } 
   return (
     <React.Fragment>
+
+      
     <div>
     <div>
       <p className='pageTitle'>Page</p>
@@ -61,19 +64,20 @@ import { Link } from "react-router-dom";
             </div>
 
     <div>
-      { <button  onClick={e=>{handleClick(e)}} >Reset </button>}   
+      { <button  onClick={e=>{handleClick(e)}}> Reset </button>}   
       </div>
-      {allDogs?.map((dog,i)=>{
+      {dogs?.map((dog,i)=>{
         if(inPage(i)){
           return (
-						<Link to= {`/detail/${dog.id}`}>
+						<Link to= {`/dogs/${dog.id}`}>
 							<DogCard 
               key= {dog.id} 
               id= {dog.id} 
               name= {dog.name} 
-              image= {dog.img} 
+              image= {dog.image} 
               temperament={dog.temperament} 
-              weight= {dog.weight}/> 
+              min_weight= {dog.min_weight}
+              max_weight= {dog.max_weight}/> 
 					</Link>
 					)
         }

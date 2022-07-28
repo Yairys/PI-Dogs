@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DogCard({name, image, temperament, weight}){
+export default function DogCard({name, image, temperament, min_weight, max_weight}){
 
   
   return (
@@ -14,7 +14,7 @@ export default function DogCard({name, image, temperament, weight}){
           <p>Temperament: {temperament}</p>
         </div>
         <div> 
-          <p>Teight: {`${weight} Kg`}  </p>
+          <p>Weight: {`${min_weight} - ${max_weight} Kg`}  </p>
         </div>
       </div>
     </div>

@@ -1,5 +1,8 @@
 import React from "react";
 import DogsCard from '../DogsCard/DogsCard'
+import FiltersBar from "../FiltersBar/FiltersBar";
+import SearchBar from "../SearchBar/SearchBar";
+
 
 export default function Home(){
   return (
@@ -7,7 +10,12 @@ export default function Home(){
       <div>
 				<h1>DOGAPEDIA</h1>
 			</div>
-		<DogsCard/> 				
+    <FiltersBar/>
+    <SearchBar/>
+		<DogsCard/> 
+   
+    
+    
     </React.Fragment>
     )
 }
