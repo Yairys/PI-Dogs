@@ -169,6 +169,7 @@ export default function CreateDog(){
           type={'number'} 
           name= {'max_lifeSpan'} 
           value={input.max_lifeSpan} 
+          
           placeholder={'Min'}
           onChange={handleChange} 
           />
