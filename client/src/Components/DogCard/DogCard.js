@@ -1,13 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import './DogCard.css'
 
-export default function DogCard({name, image, temperament, min_weight, max_weight}){
+export default function DogCard({name, image, temperament, min_weight, max_weight, id}){
 
   
   return (
-    <div>
+    <Link to= {`/dogs/${id}`}>
       <div className='container'>
         <h4>Dog Breed: {name}</h4>
-        <div>
+        <div className="divfoto">
           <img className= 'dogPhoto' src={image} alt= ""  width="400px"  height="" />
         </div>
         <div> 
@@ -17,7 +19,7 @@ export default function DogCard({name, image, temperament, min_weight, max_weigh
           <p>Weight: {`${min_weight} - ${max_weight} Kg`}  </p>
         </div>
       </div>
-    </div>
+      </Link>
     )
 }
 

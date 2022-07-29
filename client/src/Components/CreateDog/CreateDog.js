@@ -6,6 +6,7 @@ import{createDog} from '../../Redux/Actions'
 
 
 export default function CreateDog(){
+  const dogs= useSelector((state)=>state.dogs)
 
  const dispatch = useDispatch()
   useEffect(() => {
@@ -15,7 +16,7 @@ export default function CreateDog(){
 
     
     const temperaments = useSelector((state)=> state.temperaments)
-    const [errorButton, setErrorButton] = useState(true)
+    const [errorButton, setErrorButton] = useState(false)
     const [errors, setErrors] = useState({})
     const [loading, setLoading] = useState(false)
 
@@ -31,6 +32,7 @@ export default function CreateDog(){
       temperament: []
       
       }) 
+      
 
 
     function handleChange(e){
@@ -43,7 +45,17 @@ export default function CreateDog(){
             ...input,
             [e.target.name]: e.target.value
 
-        }));
+        })
+        );
+        
+        if(errors.length!==0){ 
+          setErrorButton(true)
+        }else{
+          setErrorButton(false);
+        }
+         
+        
+        
     }
 
     let handleSelect = (e)=>{
@@ -69,16 +81,23 @@ export default function CreateDog(){
         setErrors(validate({
           ...input,
           [e.target.name]: e.target.value
-          }))
-          console.log(input)
-          if(Object.keys(errors).length===0){ 
-            alert('Enviando formulario')
-          }else{
-            return;
-          }
-        setLoading(true)
-        dispatch(createDog(input))         
-    }
+        }))
+        /* const existName = dogs.filter(e=>e.name.toLoweCase()=== input.name.toLowerCase()) 
+        console.log(dogs)
+        if(existName.length){ return alert ('This Dogs Breed Already Exists')}
+         */
+        if(Object.keys(errors).length===0){ 
+          alert('Enviando formulario')
+         
+        }else{
+          return;
+        }
+      setLoading(true)
+      dispatch(createDog(input))         
+  }
+        
+        
+          
     
 
     return(
@@ -95,7 +114,7 @@ export default function CreateDog(){
             value={input.name} 
             placeholder="Type the Dog's Breed"
             onChange={handleChange} 
-            /* required={true} */
+            required={true} 
             />
           {errors.name?  (<span>{errors.name}</span>): (false)}  
             </div>
@@ -112,8 +131,8 @@ export default function CreateDog(){
           value={input.min_weight} 
           placeholder={'Min'} 
           onChange={handleChange} 
-          /* required={true} */ />
-          {errors.min_weight?  (<span>{errors.min_weight}</span>): ('')}
+          required={true} />
+          {errors.min_weight?  (<span>{errors.min_weight}</span>): (false)}
           </div>
           
           <div>
@@ -124,8 +143,8 @@ export default function CreateDog(){
           value={input.max_weight} 
           placeholder={'Max'} 
           onChange={handleChange} 
-         /*  required={true} */ />
-           {errors.max_weight?  (<span>{errors.max_weight}</span>): ('')}
+         required={true}  />
+           {errors.max_weight?  (<span>{errors.max_weight}</span>): (false)}
           </div>
           <div>
               <label>Height:</label>
@@ -138,8 +157,8 @@ export default function CreateDog(){
           value={input.min_height} 
           placeholder={'Min'}
           onChange={handleChange} 
-          /* required={true} */ />
-           {errors.min_height?  (<span>{errors.min_height}</span>): ('')}
+          required={true}  />
+           {errors.min_height?  (<span>{errors.min_height}</span>): (false)}
           </div>
           <div>
           <input 
@@ -149,8 +168,8 @@ export default function CreateDog(){
           value={input.max_height} 
           placeholder={'Max'}
           onChange={handleChange} 
-          /* required={true} */ />
-           {errors.max_height?  (<span>{errors.max_height}</span>): ('')}
+          required={true}  />
+           {errors.max_height?  (<span>{errors.max_height}</span>): (false)}
           </div>
           <div>
           <input 
@@ -161,7 +180,7 @@ export default function CreateDog(){
           placeholder={'Min'}
           onChange={handleChange} 
            />
-          {errors.min_lifeSpan?  (<span>{errors.min_lifeSpan}</span>): ('')}
+          {errors.min_lifeSpan?  (<span>{errors.min_lifeSpan}</span>): (false)}
           </div>
           <div>
           <input 
@@ -173,7 +192,7 @@ export default function CreateDog(){
           placeholder={'Min'}
           onChange={handleChange} 
           />
-          {errors.max_lifeSpan?  (<span>{errors.max_lifeSpan}</span>): ('')}
+          {errors.max_lifeSpan?  (<span>{errors.max_lifeSpan}</span>): (false)}
           </div>
           <div>
           <label>Image URL: </label>
@@ -185,25 +204,28 @@ export default function CreateDog(){
           value={input["image"]}
           placeholder={'https://'}
           onChange={handleChange} 
+          required={true} 
           />
-           {errors.image?  (<span>{errors.image}</span>): ('')}
+           {errors.image?  (<span>{errors.image}</span>): (false)}
           </div>
 
 
           <div>
             <label>Temperaments </label>
-            <select onChange={handleSelect}>
+            <select onChange={handleSelect}
+            required={true} >
               
               <option value='all'>Temperaments</option>
                 {temperaments.map((temp) => (
               <option value={temp.id} key={temp.id}>{temp.name}</option>))}
+
             </select>
           </div>
 
 
             <button
             type="submit"
-           /* disabled={errorButton} */  
+            /* disabled={errorButton}   */
             >Create
             </button>
 

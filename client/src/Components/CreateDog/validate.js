@@ -1,6 +1,6 @@
 export function validate(input){
     let errors = {};
-    let errorButton= {}
+    let errorButton=true
   
     if (!/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/.test(input.name)){
         errors.name = "(*)Dog's breed must contain only letters and spaces (and not end in space)"
@@ -36,5 +36,7 @@ export function validate(input){
 
  
     
-    return errors
+    return errors 
 }
+
+

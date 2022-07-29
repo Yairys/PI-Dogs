@@ -1,8 +1,9 @@
-import React, { useEffect, useState} from "react";
+import React, { Fragment, useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {getDogs} from '../../Redux/Actions'
 import DogCard from "../DogCard/DogCard";
-import { Link } from "react-router-dom";
+
+import './DogsCard.css'
 
 
 
@@ -43,12 +44,42 @@ import { Link } from "react-router-dom";
 
   } 
   return (
-    <React.Fragment>
+    <div className="tarjeta">
+    
 
+{/* reset */}
+    <div >
+      { <button  onClick={e=>{handleClick(e)}}> Reset </button>}   
+      </div>
+
+      {/* perros */}
+        <div className="card">
+      {dogs?.map((dog,i)=>{
+        if(inPage(i)){
+          
+          return (
+            
+						
+							<DogCard 
+              key= {dog.id} 
+              id= {dog.id} 
+              name= {dog.name} 
+              image= {dog.image} 
+              temperament={dog.temperament} 
+              min_weight= {dog.min_weight}
+              max_weight= {dog.max_weight}/> 
+             
+					
+          
+					)
+        }
+      }     
+      )} 
+
+      </div> 
+        {/* paginado */}
+    <div>
       
-    <div>
-    <div>
-      <p className='pageTitle'>Page</p>
         {
         pages.map((p) => {
         let disabled = false
@@ -59,34 +90,14 @@ import { Link } from "react-router-dom";
         disabled={disabled}
         onClick={() => setPage(p)}>{p}
         </button>)
-                    })
-                }
-            </div>
-
-    <div>
-      { <button  onClick={e=>{handleClick(e)}}> Reset </button>}   
-      </div>
-      {dogs?.map((dog,i)=>{
-        if(inPage(i)){
-          return (
-						<Link to= {`/dogs/${dog.id}`}>
-							<DogCard 
-              key= {dog.id} 
-              id= {dog.id} 
-              name= {dog.name} 
-              image= {dog.image} 
-              temperament={dog.temperament} 
-              min_weight= {dog.min_weight}
-              max_weight= {dog.max_weight}/> 
-					</Link>
-					)
+          })
         }
-      }     
-      )}  
+        </div>
+      
       </div>
      
 
-      </React.Fragment>
+
   )
 }
 export default DogsCard

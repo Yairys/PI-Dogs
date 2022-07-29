@@ -1,0 +1,19 @@
+
+.card{
+    background-color: blueviolet; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    }
+
+      .tarjeta{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       
+
+      }

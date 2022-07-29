@@ -1,19 +1,36 @@
 import React from "react";
+import './Landing.css'
 import { Link } from "react-router-dom";
-//import './landing.css'
+
 
 export default function Landing(){
-    return (
+return (
 
-        <div className="landing">
-            <div>
-                <h1>DOGS APP</h1>
-            </div>
-            <img/>
-            <Link to='/dogs'>
-                <button> LETS GO! </button>
-            </Link>
+  <div className="landing">
 
+    <div className="empty"> </div>
+   
+    <div className="container_text">
+      <div className="cover" >
+      
+        <div className="text">
+        <h1 className="h1l">DOGAPPEDIA</h1>
+        
+          
+          <p> "Que bonito seria el mundo, si el hombre tuviera el corazon del perro"</p>
+
+          <Link to='/dogs'>
+            <button className="lbutton"> LETS GO! </button>
+          </Link>
+         
         </div>
+      
+  
+         
+      </div>
+    </div>
+    
+
+    </div>
     )
 }
