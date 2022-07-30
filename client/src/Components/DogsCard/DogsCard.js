@@ -2,11 +2,7 @@ import React, { Fragment, useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {getDogs} from '../../Redux/Actions'
 import DogCard from "../DogCard/DogCard";
-
 import './DogsCard.css'
-
-
-
 
  const DogsCard= (props)=>{
 
@@ -44,13 +40,16 @@ import './DogsCard.css'
 
   } 
   return (
+
+<>
+    <div >
+      { <button className="rButton"  onClick={e=>{handleClick(e)}}> Reset </button>}   
+      </div>
+    
     <div className="tarjeta">
     
 
 {/* reset */}
-    <div >
-      { <button  onClick={e=>{handleClick(e)}}> Reset </button>}   
-      </div>
 
       {/* perros */}
         <div className="card">
@@ -58,8 +57,6 @@ import './DogsCard.css'
         if(inPage(i)){
           
           return (
-            
-						
 							<DogCard 
               key= {dog.id} 
               id= {dog.id} 
@@ -68,8 +65,6 @@ import './DogsCard.css'
               temperament={dog.temperament} 
               min_weight= {dog.min_weight}
               max_weight= {dog.max_weight}/> 
-             
-					
           
 					)
         }
@@ -86,6 +81,7 @@ import './DogsCard.css'
         if (p === page) {
         disabled = true}
         return (<button
+        className="pButton"
         key={p}
         disabled={disabled}
         onClick={() => setPage(p)}>{p}
@@ -95,9 +91,7 @@ import './DogsCard.css'
         </div>
       
       </div>
-     
-
-
+      </>
   )
 }
 export default DogsCard

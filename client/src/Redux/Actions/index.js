@@ -78,7 +78,8 @@ export function createDog(payload){
       let response = await axios.post("http://localhost:3001/create", payload)
       return response
     }catch(error){
-      console.log(error)
+      alert('Este perro ya existe')
+      return (error)
     }   
   } 
   }

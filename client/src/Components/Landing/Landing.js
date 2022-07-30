@@ -17,7 +17,7 @@ return (
         <h1 className="h1l">DOGAPPEDIA</h1>
         
           
-          <p> "Que bonito seria el mundo, si el hombre tuviera el corazon del perro"</p>
+          <p className="texto_landing"> "Que bonito seria el mundo, si el hombre tuviera el corazon del perro"</p>
 
           <Link to='/dogs'>
             <button className="lbutton"> LETS GO! </button>

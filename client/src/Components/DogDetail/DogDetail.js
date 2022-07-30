@@ -9,6 +9,7 @@ const dispatch = useDispatch()
 
 useEffect(()=>{
   dispatch(getDetail(props.match.params.id))
+  //return()=>(dispatch(cleanDetail()))
 },[dispatch])
 
 const currentDog = useSelector((state)=>state.detail)

@@ -11,20 +11,13 @@ export default function Home(){
       <div>
 				<h1>DOGAPEDIA</h1>
 			</div>
+
     <FiltersBar/>
     <SearchBar/>
-
-
-    
     <DogsCard/> 
     
-  
 
-		</div>
-   
-    
-    
-    
+		</div> 
     )
 }
 

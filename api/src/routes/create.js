@@ -10,18 +10,18 @@ router.post('/', async (req, res) => {
         res.send({msg:"missing data"})
     }
     try{
-        const newDog = await Dog.create({ name, min_height, max_height, max_weight, min_weight, max_lifeSpan, min_lifeSpan, temperament, image})
+        const newDog = await Dog.create({ name, min_height, max_height, max_weight, min_weight, max_lifeSpan, min_lifeSpan, temperament, image })
 
         newDog.addTemperament(temperament);
-        /*  const aux = Dog.findById(newDog,{
+       /*   const aux = Dog.findById(newDog,{
             include: [{ model : Temperament}],
-        })   */
-
-        console.log(aux)
-       res.json("newDog")
+        })   */ 
+       res.status(200).json("newDog")
 
     }catch(err){
-        res.json(err)
+       
+        res.status(404).json(err)
+        return(err)
     }
     
 });

@@ -1,5 +1,5 @@
 
-/* @import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,500&family=Source+Sans+Pro:ital,wght@0,900;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,500&family=Source+Sans+Pro:ital,wght@0,900;1,700;1,900&display=swap');
 
 
 .empty{
@@ -8,10 +8,7 @@
     margin-top: 40px;
     z-index: 1;
     display: flex;
-    align-self: flex-start;
-    background-color: rgb(0, 0, 0);
-
-      
+    align-self: flex-start;   
   }
 
 .container_text{
@@ -20,10 +17,6 @@
     background-image: url(../../Assets/image/landing-rosa-comp.png);
     background-position: right;
     background-repeat: no-repeat ;
-    
-    
-    
-    
   }
 .cover{
     max-width:  1200px;
@@ -47,7 +40,7 @@
     
 }
 
-p{
+.texto_landing{
     font-size: 30px;
     margin-top: 40px;
     font-family: 'Amaranth', sans-serif;
@@ -72,4 +65,4 @@ p{
 img{
     width: 500px;
     margin-bottom: -200px;
-   }  */
+   }  
