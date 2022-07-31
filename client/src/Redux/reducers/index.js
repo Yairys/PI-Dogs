@@ -118,11 +118,18 @@ export default function rootReducer(state= initialState, action){
         return{
           ...state
         } 
+      case 'CLEAN_DETAIL':
+        return{
+          ...state,
+          detail: action.payload
+        }
        
         
       default: return {...state}   
             
      }
+
+
 } 
 
 

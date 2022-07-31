@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../../Redux/Actions";
+import { getDetail, cleanDetail } from "../../Redux/Actions";
 import { useEffect } from "react";
+import gif from '../../Assets/image/corgifast.gif'
 
 export default function DogDetail(props){
 const dispatch = useDispatch()
 
 useEffect(()=>{
   dispatch(getDetail(props.match.params.id))
-  //return()=>(dispatch(cleanDetail()))
+
+  return()=>(dispatch(cleanDetail()))
 },[dispatch])
 
 const currentDog = useSelector((state)=>state.detail)
@@ -32,7 +34,7 @@ return(
         
         <h3> Temperament: </h3>
         <p>{currentDog.temperament}</p>
-      </div> : <p>Loading...</p>
+      </div> :  <img src={gif} alt="myGif" />
     
     }
   </div>

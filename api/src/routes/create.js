@@ -16,11 +16,11 @@ router.post('/', async (req, res) => {
        /*   const aux = Dog.findById(newDog,{
             include: [{ model : Temperament}],
         })   */ 
-       res.status(200).json("newDog")
+       res.status(200).json(newDog)
 
     }catch(err){
-       
-        res.status(404).json(err)
+        /* .status(404). */
+        res.json(err)
         return(err)
     }
     

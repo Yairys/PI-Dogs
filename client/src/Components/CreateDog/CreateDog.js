@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {validate} from './validate'
-import { getTemps } from '../../Redux/Actions';
+import { getTemps,getDogs } from '../../Redux/Actions';
 import{createDog} from '../../Redux/Actions'
 
 
+
 export default function CreateDog(){
+
+
   const dogs= useSelector((state)=>state.dogs)
 
+
+  
  const dispatch = useDispatch()
   useEffect(() => {
+    dispatch(getDogs());
   
     dispatch(getTemps());
-  }, []);  
+  }, [dispatch]);  
 
     
     const temperaments = useSelector((state)=> state.temperaments)
@@ -32,11 +38,8 @@ export default function CreateDog(){
       temperament: []
       
       }) 
-      
-
 
     function handleChange(e){
-
         setInput({
         ...input,
         [e.target.name] : e.target.value
@@ -44,25 +47,21 @@ export default function CreateDog(){
         setErrors(validate({
             ...input,
             [e.target.name]: e.target.value
-
         })
         );
-        
+
         if(errors.length!==0){ 
           setErrorButton(true)
         }else{
           setErrorButton(false);
-        }
-         
-        
+        }        
         
     }
 
     let handleSelect = (e)=>{
       setInput({
         ...input,
-        temperament: [...new Set([...input.temperament, e.target.value])]
-      
+        temperament: [...new Set([...input.temperament, e.target.value])]   
     })
 
     }
@@ -78,28 +77,33 @@ export default function CreateDog(){
 
     function handleSubmit(e){
         e.preventDefault()
+
+
+        const duplicated = dogs.filter(e=>e.name.toLowerCase()=== input.name.toLowerCase()) 
+        console.log(duplicated)
+        console.log(dogs)
+        if(duplicated.length){ return alert ('This Dogs Breed Already Exists')}else{
+          
+        }
+
         setErrors(validate({
           ...input,
           [e.target.name]: e.target.value
         }))
-        /* const existName = dogs.filter(e=>e.name.toLoweCase()=== input.name.toLowerCase()) 
-        console.log(dogs)
-        if(existName.length){ return alert ('This Dogs Breed Already Exists')}
-         */
+        
+
         if(Object.keys(errors).length===0){ 
           alert('Enviando formulario')
-         
         }else{
           return;
         }
-      setLoading(true)
-      dispatch(createDog(input))         
+    setLoading(true)
+    dispatch(createDog(input))   
+        
+        
+            
   }
-        
-        
           
-    
-
     return(
       <div>
         <h2>Your dog's breed isn't listed?... You can include it here</h2>
@@ -107,7 +111,7 @@ export default function CreateDog(){
           <div>
           <label>Breed:</label> 
             <input 
-            autocomplete="off"
+            autoComplete="off"
             //className={errors && 'danger'}
             type={'text'} 
             name= {'name'} 
@@ -197,7 +201,7 @@ export default function CreateDog(){
           <div>
           <label>Image URL: </label>
           <input 
-          autocomplete="off" 
+          autoComplete="off" 
           //className={errors && 'danger'}
            type="url"
           name= {'image'} 

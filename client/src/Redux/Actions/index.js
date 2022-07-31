@@ -78,8 +78,9 @@ export function createDog(payload){
       let response = await axios.post("http://localhost:3001/create", payload)
       return response
     }catch(error){
-      alert('Este perro ya existe')
+      console.log(error)
       return (error)
+    
     }   
   } 
   }
@@ -112,6 +113,15 @@ export function orderByWeight(payload){
         payload
     }
 
+}
+
+export function cleanDetail(payload){
+  
+  return{
+    type: 'CLEAN_DETAIL',
+    payload
+
+  }
 }
 
 

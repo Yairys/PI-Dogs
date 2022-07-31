@@ -8,7 +8,7 @@ return (
 
   <div className="landing">
 
-    <div className="empty"> </div>
+    <div className="emptyLand"> </div>
    
     <div className="container_text">
       <div className="cover" >

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameDog } from "../../Redux/Actions";
+import './SearchBar.css'
 
 export default function SearchBar(){
 const dispatch = useDispatch()
@@ -24,16 +25,20 @@ function handleSubmit(e){
 }
 
 return(
+  
  
-    <form onSubmit={handleSubmit}>
-      <input
+    <form className="searchForm" onSubmit={handleSubmit}>
+     
+      <input className="searchInput"
         type="text"
-        placeholder="Search..."
+        placeholder="Search a Dog"
         value={name}
         onChange={handleInputChange}
       />
-      <input type="submit" value="Buscar" />
+      {/* <input type="submit" value="Buscar" /> */}
+      
     </form>
+   
   );
   
 

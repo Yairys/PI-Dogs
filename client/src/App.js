@@ -12,7 +12,7 @@ import DogDetail from './Components/DogDetail/DogDetail';
 function App() {
   return (
   <React.Fragment>
-    <Route path="/:any" component={NavBar} />
+   {/*  <Route path="/:any" component={NavBar} /> */}
    {/*  <Route exact path="/:any" component={FiltersBar} /> */}
     <Route exact path='/' component = {Landing}/>        
     <Route exact path='/dogs' component = {Home}/>        

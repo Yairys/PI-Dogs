@@ -42,6 +42,7 @@ import './DogsCard.css'
   return (
 
 <>
+
     <div >
       { <button className="rButton"  onClick={e=>{handleClick(e)}}> Reset </button>}   
       </div>

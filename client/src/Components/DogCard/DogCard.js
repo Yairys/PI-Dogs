@@ -7,7 +7,7 @@ export default function DogCard({name, image, temperament, min_weight, max_weigh
   
   return (
    
-    <div className='link_container'>
+    <Link to={`/dogs/${id}`} className='link_container'>
       
        <div className="cont_container">
       
@@ -25,7 +25,7 @@ export default function DogCard({name, image, temperament, min_weight, max_weigh
       </div>
  
         </div>
-      </div>
+      </Link>
       
      
     )
