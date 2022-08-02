@@ -43,6 +43,7 @@ export default function rootReducer(state= initialState, action){
         }
 
       case 'ORDER_BY_NAME':
+
         
         let sortedArr = action.payload === 'asc' ? state.dogs.sort(function(a,b){
           if(a.name > b.name){
@@ -64,38 +65,38 @@ export default function rootReducer(state= initialState, action){
         })
       return {
         ...state,
-        dogs: sortedArr.map(e=>e)
+        dogs: action.payload=== 'all' ? state.allDogs: sortedArr.map(e=>e)
       }
       
       case 'ORDER_BY_WEIGHT':
 
-        let sortedWeight = action.payload === 'higher' ? state.dogs.sort(function(a,b){
-        let aMin= a.min_weight
-        let aMax= a.max_weight
-        let bMin= b.min_weight
-        let bMax= b.max_weight
-        
-        if(parseInt(aMin) > parseInt(bMin)) return 1 
-        else if(parseInt(aMin) < parseInt(bMin)) return -1
-        else{
-          if (parseInt(aMax) > parseInt(bMax)) return 1
-          else if(parseInt(aMax)< parseInt(bMax)) return -1
-          else return 0
-        }
-      }):  state.dogs.sort(function(a,b){
-        let aMin= a.min_weight
-        let aMax= a.max_weight
-        let bMin= b.min_weight
-        let bMax= b.max_weight
-        if(parseInt(aMax) < parseInt(bMax)) return 1 
-        else if(parseInt(aMax) > parseInt(bMax)) return -1
-        else{
-          if (parseInt(aMin) < parseInt(bMin)) return 1
-          else if(parseInt(aMin)> parseInt(bMin)) return -1
-          else return 0
-        }
-
-      })
+        let sortedWeight = action.payload === 'higher' ?  state.dogs.sort(function(a,b){
+          let aMin= a.min_weight
+          let aMax= a.max_weight
+          let bMin= b.min_weight
+          let bMax= b.max_weight
+          if(parseInt(aMax) < parseInt(bMax)) return 1 
+          else if(parseInt(aMax) > parseInt(bMax)) return -1
+          else{
+            if (parseInt(aMin) < parseInt(bMin)) return 1
+            else if(parseInt(aMin)> parseInt(bMin)) return -1
+            else return 0
+          }
+  
+        }): state.dogs.sort(function(a,b){
+          let aMin= a.min_weight
+          let aMax= a.max_weight
+          let bMin= b.min_weight
+          let bMax= b.max_weight
+          
+          if(parseInt(aMin) > parseInt(bMin)) return 1 
+          else if(parseInt(aMin) < parseInt(bMin)) return -1
+          else{
+            if (parseInt(aMax) > parseInt(bMax)) return 1
+            else if(parseInt(aMax)< parseInt(bMax)) return -1
+            else return 0
+          }
+        })
   
         return{
           ...state,

@@ -1,17 +1,26 @@
-
-
-.bann{
-  width: 80%;
-
+.contGral{
+    display: flex;
+   align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100%;
+    background-image: url('../../Assets/image/opcion1.jpg');
+    background-size: 100% 50%;
+    
 }
-
-.header{
-  height: 600px;
- display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-
-
-
+.navBar{
+    width: 100%;
+}
+.banner{
+    height: 550px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+.banner img{
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid rgb(245, 101, 101);
 }

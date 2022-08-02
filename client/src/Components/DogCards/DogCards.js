@@ -2,9 +2,10 @@ import React, { Fragment, useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {getDogs} from '../../Redux/Actions'
 import DogCard from "../DogCard/DogCard";
-import './DogsCard.css'
+import SearchBar from "../SearchBar/SearchBar";
+import './DogCards.css'
 
- const DogsCard= (props)=>{
+ const DogCards= (props)=>{
 
   const dispatch = useDispatch()
   const dogs = useSelector((state)=> state.dogs)
@@ -41,23 +42,26 @@ import './DogsCard.css'
   } 
   return (
 
-<>
-
-    <div >
-      { <button className="rButton"  onClick={e=>{handleClick(e)}}> Reset </button>}   
+<div className=".contPpal">
+{/* reset */}
+    <div className="reset" >
+      { <button className="rButton"  onClick={e=>{handleClick(e)}}><p> Reset Filters </p></button>}   
       </div>
+
+      <div className="search">
+        <SearchBar/>
+      </div>
+       {/* perros */}
     
     <div className="tarjeta">
-    
-
-{/* reset */}
-
-      {/* perros */}
+  
+     
         <div className="card">
       {dogs?.map((dog,i)=>{
         if(inPage(i)){
           
           return (
+            
 							<DogCard 
               key= {dog.id} 
               id= {dog.id} 
@@ -92,7 +96,7 @@ import './DogsCard.css'
         </div>
       
       </div>
-      </>
+      </div>
   )
 }
-export default DogsCard
+export default DogCards

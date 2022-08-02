@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux'
+import './FiltersBar.css'
 
 import { useEffect } from 'react';
 import {
@@ -41,34 +42,40 @@ export default function FiltersBar (){
   }
 
   return(
-    <div>
-      
+    <div className='filtersBox' >
+    <div className='filters'>
+      <div className='alfabetico'>
       <select onChange={e =>handleSort(e)}>
-        <option value= 'asc'>A to Z</option>
+        <option value= 'all'>Order By Name</option>
+        <option value= 'asc'> A to Z</option>
         <option value= 'desc'>Z to A</option>
       </select>
-      <label>Weight</label>
+      </div>
+      
       <select onChange={e =>handleSortByWeight(e)}>
+        <option value= 'all'>Order By weight</option>
         <option value= 'higher'>High to low</option>
         <option value= 'lower'>Low to High</option>
       </select>
-      <label>Temperament</label>
+      
       
       <select onChange={e =>handleFilterTemperament(e)}>
-        <option value='all'>Temperaments</option>
+        <option value='all'>Filter By Temperament</option>
       {temperaments.map((temp) => (
 <option value={temp.name} key={temp.id}>{temp.name}</option>))}
       </select>
         
      
       <select on onChange={e=>handleFilterCreated(e)}>
-        <option value= 'all'>All</option>
+        <option value= 'all'>Filter By Origin</option>
         <option value= 'api'>Api</option>
         <option value= 'db'>DB</option>
       </select>
+
     
 
 
+    </div>
     </div>
 
    

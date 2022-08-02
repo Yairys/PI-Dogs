@@ -1,0 +1,189 @@
+
+.containerCreate h2{
+    text-transform: uppercase;
+    
+}
+
+.containerCreate{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../Assets/image/opcion1.jpg');
+    background-size: 100%;
+}
+
+
+.group {
+    display: flex;
+    line-height: 28px;
+    width: 1200px;
+    height: 750px;
+    padding: 50px;
+    margin: 20px;
+   
+    background: #ffffff80;
+    
+  
+    
+   }
+   
+   .containerCreate input {
+    width: 500px;;
+    height: 40px;
+    line-height: 18px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+    margin: 10px;
+    border: 1px solid rgba(92, 92, 92, 0.363);
+    
+   }
+   
+   .containerCreate input::placeholder {
+    color: #9e9ea7;
+   }
+   
+   .containerCreate input:focus, .containerCreate input:hover {
+    outline: none;
+    border-color: rgba(234,76,137,0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+   }
+   
+   .danger{
+    border-color: rgba(255, 0, 0, 0.774);
+   }
+   .numInput{
+    max-width: 100px;
+   }
+
+   .createTemp {
+       height: 50px;
+       line-height: 28px;
+       padding: 0 1rem;
+       border: 2px solid transparent;
+       border-radius: 8px;
+       outline: none;
+       color: #9e9ea7;
+    }
+    .createTemp:hover{
+        outline: none;
+        border-color: rgba(234,76,137,0.4);
+        background-color: #fff;
+        box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+    } 
+    .error{
+        display: inline;
+        color: red;
+        font-size: .7em;
+    }
+    .error2{
+        display: none;
+      
+    
+    }
+   
+
+    
+.send button {
+    margin-left: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 15px;
+   }
+   
+   button.send {
+    font-weight: 600;
+    color: #382b22;
+    text-transform: uppercase;
+    padding: 1.25em 2em;
+    background: rgb(247, 168, 168);
+    border: 2px solid #b18597;
+    border-radius: 0.75em;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+   }
+   
+   button.send::before {
+    
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f9c4d2;
+    border-radius: inherit;
+    -webkit-box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+    box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+    -webkit-transform: translate3d(0, 0.75em, -1em);
+    transform: translate3d(0, 0.75em, -1em);
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+   }
+   
+   button.send:hover {
+    background: #ffe9e9;
+    -webkit-transform: translate(0, 0.25em);
+    transform: translate(0, 0.25em);
+   }
+   
+   button.send:hover::before {
+    -webkit-box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+    box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+    -webkit-transform: translate3d(0, 0.5em, -1em);
+    transform: translate3d(0, 0.5em, -1em);
+   }
+   
+   button.send:active {
+    background: #ffe9e9;
+    -webkit-transform: translate(0em, 0.75em);
+    transform: translate(0em, 0.75em);
+   }
+   
+   button.send:active::before {
+    -webkit-box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+    box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+    -webkit-transform: translate3d(0, 0, -1em);
+    transform: translate3d(0, 0, -1em);
+   }
+
+   .boton{
+    margin: 30px;
+    display: inline;
+    
+    
+   }
+   .botones{
+    
+    margin-top: 100px;
+
+
+   }
+
+   .selectTemp{
+    height: 200px;
+    width: 200px;
+    border: solid black;
+   }
+
+   

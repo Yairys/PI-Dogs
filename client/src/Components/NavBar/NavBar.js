@@ -1,34 +1,33 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
 import './NavBar.css'
+import logo from '../../Assets/image/logo.png'
 
 export default function NavBar(){
   return (
-    <React.Fragment>
+    
      
 <div className="navBar">
-  <SearchBar/>
-    <nav>
-
+ 
+    <nav className="nav">
+    <div className="logo"><img src={logo} /></div>
+      
       <ul>
-        <li>
+        
+      
+        <li className="li">
           <NavLink className="navLink" activeClassName='selected' exact to={"/dogs"}>Home</NavLink>
         </li>
-        <li>
-          <NavLink className="navLink" activeClassName='selected' exact to={"/create"}>Create Dog</NavLink>
+        <li className="li">
+          <NavLink className="navLink" activeClassName='selected' exact to={"/create"}>Create a Dog</NavLink>
         </li>
+        <div className="liEstructura"></div>
         
-        {/* <li>
-          <NavLink className="navLink" activeClassName='selected' exact to={"/dogs/game"}>Let's Play</NavLink>
-        </li> */}
             </ul>
-   
         </nav>
-        
         </div>
         
 
-        </React.Fragment>
+        
     )
 }
