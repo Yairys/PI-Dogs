@@ -59,8 +59,7 @@ const preCharge= async ()=>{
               temperaments = temperaments.map(t=>t.trim()) // trim elimina los espacios en los extremos
               let filtered = temperaments.filter((e, i) => temperaments.indexOf(e) === i)
               filtered=filtered.filter(e=>e !== "")
-
-
+             
 
               let modelTemp = filtered.map((e) => {//  nuevo map para 
               return {

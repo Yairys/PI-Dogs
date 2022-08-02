@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {getDogs} from '../../Redux/Actions'
 import DogCard from "../DogCard/DogCard";
-import SearchBar from "../SearchBar/SearchBar";
 import './DogCards.css'
 
  const DogCards= (props)=>{
@@ -43,14 +42,9 @@ import './DogCards.css'
   return (
 
 <div className=".contPpal">
-{/* reset */}
-    <div className="reset" >
-      { <button className="rButton"  onClick={e=>{handleClick(e)}}><p> Reset Filters </p></button>}   
-      </div>
 
-      <div className="search">
-        <SearchBar/>
-      </div>
+
+      
        {/* perros */}
     
     <div className="tarjeta">

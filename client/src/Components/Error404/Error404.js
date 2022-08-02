@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 
-export default function Send(){
+export default function Error404(){
     return (     
   <div className='cont404' >
  

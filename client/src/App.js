@@ -1,21 +1,21 @@
 import React from 'react';
 import './App.css';
-import { Route, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route,  Switch} from 'react-router-dom';
 import NavBar from './Components/NavBar/NavBar';
 import Landing from './Components/Landing/Landing';
 import Home from './Components/Home/Home';
 import CreateDog from './Components/CreateDog/CreateDog'
 import DogDetail from './Components/DogDetail/DogDetail'; 
 import Send from './Components/Send/Send';
-/* import Error404 from './Components/Error404/Error404' */
+import Error404 from './Components/Error404/Error404' 
 
-
-/* import FiltersBar from './Components/FiltersBar/FiltersBar'; */
 
 
 function App() {
   return (
-  <React.Fragment>
+    <>
+  <Router>
+    <Switch>
    {/*  <Route path="/:any" component={NavBar} /> */}
    {/*  <Route exact path="/:any" component={FiltersBar} /> */}
     <Route exact path='/' component = {Landing}/>        
@@ -23,10 +23,11 @@ function App() {
     <Route exact path= '/dogs/:id' component = {DogDetail}/>  
     <Route exact path='/create' component = {CreateDog}/>   
     <Route exact path='/create/send' component ={Send}/>   
-    {/* <Route path= '*' component = {Error404}/>  */}
+    <Route path= '*' component = {Error404}/>  
+    </Switch>
 
-
-  </React.Fragment>
+  </Router>
+  </>
   );
 }   
 

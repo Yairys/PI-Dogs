@@ -3,17 +3,23 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    
+   
+ 
+  
 
 }
 
 .tarjeta{ /* columna reset/ cards/ paginado */
+    min-width: 100%;
+ min-height: 100vh;
    
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+   
 
   }
 
@@ -23,6 +29,8 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+
+ 
 
     }
 .pButton{
@@ -37,57 +45,3 @@
 .pButton:hover{
     background-color: #9494945d;
 }
-.rButton{
-    cursor: pointer;
- border-radius: 50px;
- border: 0;
- background-color: white;
- box-shadow: rgba(14, 14, 14, 0.3) 3px 5px 15px,
-      rgba(0, 0, 0, 0.1) 10px 10px 10px,
-      rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
-      rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
-padding-left: 10px;
-padding-right: 10px;
-
- 
- transition: all .5s ease;
-
-}
-
-.rButton:hover{
-    
-    background-color: #f8dadaab;
-    color: hsl(0, 0%, 100%);
-    
-}
-
-.reset{
-    margin-top: -45px;
-    margin-bottom: 50px;
-    width: 150px;
-    
-    position:relative;
-    bottom: 30px;
-    left: 1200px;
-  }
-    
-    
-
-.reset button{
-    border: 3px solid rgb(245, 101, 101);
-    
-}
-.rButton p{
-    text-transform: uppercase;
-   
-}
-.search{
-    width: 100px;
-    margin-top: -78px;
-    margin-bottom: 80px;
-    position:relative;
-    bottom: 50px;
-    left: 600px;
-}
-
-  

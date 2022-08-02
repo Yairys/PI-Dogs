@@ -111,6 +111,10 @@ export default function rootReducer(state= initialState, action){
         }
 
       case 'GET_NAME':
+
+      if(typeof(action.payload)==='string'){
+        return alert("Dog's Breed Not Found");
+      }
         return{
           ...state,
           dogs: action.payload

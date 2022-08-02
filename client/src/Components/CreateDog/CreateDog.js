@@ -4,7 +4,7 @@ import { validate } from "./validate";
 import { getTemps, getDogs } from "../../Redux/Actions";
 import { createDog } from "../../Redux/Actions";
 import { Link, useHistory } from "react-router-dom";
-import "./Create.css";
+import "./CreateDog.css";
 
 export default function CreateDog() {
   const history = useHistory();
@@ -165,6 +165,7 @@ export default function CreateDog() {
               required={true}
             />
             <input
+              className="numInput"
               //className={errors && 'danger'}
               type={"text"}
               name={"max_height"}
@@ -253,15 +254,13 @@ export default function CreateDog() {
             </select>
             <div className="SelectTemp">
               {input.temperament.map((el) => {
-                let tempName = temperaments.find(
-                  (temp) => {
-                    return temp.id === Number(el)
-                    }
-                )?.name;
+                let tempName = temperaments.find((temp) => {
+                  return temp.id === Number(el);
+                })?.name;
 
                 return (
-                  <button onClick={() => handleDelete(el)}>
-                    {tempName} <label>X</label>
+                  <button className="deleteTemp" onClick={() => handleDelete(el)}>
+                    {tempName} 
                   </button>
                 );
               })}

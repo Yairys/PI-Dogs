@@ -13,6 +13,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(./Assets/image/opcion1.jpg);
+  background-size: 100%;
+ 
+
+  
    
  
 

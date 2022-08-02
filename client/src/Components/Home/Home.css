@@ -1,26 +1,75 @@
 .contGral{
     display: flex;
+    align-items: center;
+     flex-direction: column;
+   
+}
+.midBar{
+    width: 100%;
+    height: 200px;
+    display: flex;
    align-items: center;
     flex-direction: column;
-    min-height: 100vh;
-    min-width: 100%;
-    background-image: url('../../Assets/image/opcion1.jpg');
-    background-size: 100% 50%;
+    margin-top: 40px;
     
+
 }
+
+
 .navBar{
     width: 100%;
 }
-.banner{
-    height: 550px;
-    width: 100%;
+
+.resetYSearch{
+   
     display: flex;
+    align-items: center;
     justify-content: center;
-    display: inline-block;
-    margin-bottom: 50px;
+    margin-top: -70px;
+    margin-bottom: 75px;
+     width: 100%;
+     height: 100%;
+     gap:400px
 }
-.banner img{
-    height: 100%;
-    width: 100%;
-    border-bottom: 2px solid rgb(245, 101, 101);
+.rButton{
+    cursor: pointer;
+ border-radius: 50px;
+ border: 0;
+ background-color: white;
+ box-shadow: rgba(14, 14, 14, 0.3) 3px 5px 15px,
+      rgba(0, 0, 0, 0.1) 10px 10px 10px,
+      rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
+      rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
+padding-left: 10px;
+padding-right: 10px;
+
+ 
+ transition: all .5s ease;
+
 }
+
+.rButton:hover{
+    
+    background-color: #f8dadaab;
+    color: hsl(0, 0%, 100%);
+    
+}
+
+ 
+    
+
+.reset button{
+    border: 3px solid rgb(245, 101, 101);
+    display: inline;
+    
+}
+.rButton p{
+    text-transform: uppercase;
+   
+}
+.search{
+    width: 100px;
+    display: inline;
+   
+}
+
