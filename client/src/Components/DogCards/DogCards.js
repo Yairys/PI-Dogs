@@ -48,17 +48,14 @@ import './DogCards.css'
               image= {dog.image} 
               temperament={dog.temperament} 
               min_weight= {dog.min_weight}
-              max_weight= {dog.max_weight}/> 
-          
+              max_weight= {dog.max_weight}/>    
 					)
         }
       }     
-      )} 
-
+      )}
       </div> 
       
-    <div>
-      
+    <div> 
         {
         pages.map((p) => {
         let disabled = false
@@ -72,8 +69,7 @@ import './DogCards.css'
         </button>)
           })
         }
-        </div>
-      
+        </div>  
       </div>
       </div>
   )

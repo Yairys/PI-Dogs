@@ -67,7 +67,7 @@ const preCharge= async ()=>{
                   };
               })  
               
-              //crear los apisodios en la db con bulk
+              //crear los temperamentos en la db con bulk
   
               Temperament.bulkCreate(modelTemp)}
 

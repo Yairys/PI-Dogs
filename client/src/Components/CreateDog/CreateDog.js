@@ -74,7 +74,7 @@ export default function CreateDog() {
     const duplicated = dogs.filter(
       (e) => e.name.toLowerCase() === input.name.toLowerCase()
     );
-    if(input.temperament.length===0) return alert('You must select almost one Temperament')
+    if(input.temperament.length===0) return alert('You must select at least one Temperament')
     if(input.temperament.length>4) return alert('Only 4 temperaments allowed')
     if (duplicated.length) {
       return alert("This Dogs Breed Already Exists");
@@ -106,7 +106,6 @@ export default function CreateDog() {
             <label>Breed:</label>
             <input
               autoComplete="off"
-              //className={errors && 'danger'}
               type={"text"}
               name={"name"}
               value={input.name}
@@ -120,8 +119,8 @@ export default function CreateDog() {
           <div>
             <label>Weight:</label>
             <input
+              autoComplete="off"
               className="numInput"
-              //className={errors && 'danger'}
               type={"text"}
               name={"min_weight"}
               value={input.min_weight}
@@ -131,8 +130,8 @@ export default function CreateDog() {
             />
 
             <input
+              autoComplete="off"
               className="numInput"
-              //className={errors && 'danger'}
               type={"text"}
               name={"max_weight"}
               value={input.max_weight}
@@ -156,7 +155,6 @@ export default function CreateDog() {
             <label>Height:</label>
             <input
               className="numInput"
-              //className={errors && 'danger'}
               type={"text"}
               name={"min_height"}
               value={input.min_height}
@@ -166,7 +164,6 @@ export default function CreateDog() {
             />
             <input
               className="numInput"
-              //className={errors && 'danger'}
               type={"text"}
               name={"max_height"}
               value={input.max_height}
@@ -190,7 +187,6 @@ export default function CreateDog() {
             <label>Life Span: </label>
             <input
               className="numInput"
-              //className={errors && 'danger'}
               type={"text"}
               name={"min_lifeSpan"}
               value={input.min_lifeSpan}
@@ -205,7 +201,6 @@ export default function CreateDog() {
 
             <input
               className="numInput"
-              //className={errors && 'danger'}
               type={"text"}
               name={"max_lifeSpan"}
               value={input.max_lifeSpan}
@@ -223,19 +218,15 @@ export default function CreateDog() {
             <label>Image URL: </label>
             <input
               autoComplete="off"
-              //className={errors && 'danger'}
               type="url"
               name={"image"}
               value={input["image"]}
               placeholder={"https://"}
               onChange={handleChange}
-             
             />
             {errors.image ? (
               <span className="error">{errors.image}</span>
-            ) : (
-              false
-            )}
+            ) : (false)}
           </div>
 
           <div>
