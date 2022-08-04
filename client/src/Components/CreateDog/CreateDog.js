@@ -19,9 +19,9 @@ export default function CreateDog() {
   }, [dispatch]);
 
   const temperaments = useSelector((state) => state.temperaments);
-  const [errorButton, setErrorButton] = useState(false);
+ const [errorButton, setErrorButton] = useState(true);
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
+  /* const [loading, setLoading] = useState(false); */
 
   const [input, setInput] = useState({
     name: "",
@@ -47,7 +47,7 @@ export default function CreateDog() {
       })
     );
 
-    if (errors.length !== 0) {
+    if (Object.keys(errors).length !== 0) {
       setErrorButton(true);
     } else {
       setErrorButton(false);
@@ -57,7 +57,7 @@ export default function CreateDog() {
   let handleSelect = (e) => {
     setInput({
       ...input,
-      temperament: [...new Set([...input.temperament, e.target.value])],
+      temperament: ([...input.temperament, e.target.value]),
     });
   };
 
@@ -74,8 +74,8 @@ export default function CreateDog() {
     const duplicated = dogs.filter(
       (e) => e.name.toLowerCase() === input.name.toLowerCase()
     );
-    console.log(duplicated);
-    console.log(dogs);
+    if(input.temperament.length===0) return alert('You must select almost one Temperament')
+    if(input.temperament.length>4) return alert('Only 4 temperaments allowed')
     if (duplicated.length) {
       return alert("This Dogs Breed Already Exists");
     } else {
@@ -93,7 +93,7 @@ export default function CreateDog() {
     } else {
       return;
     }
-    setLoading(true);
+    /* setLoading(true); */
     dispatch(createDog(input, history.push("/create/send")));
   }
 
@@ -229,7 +229,7 @@ export default function CreateDog() {
               value={input["image"]}
               placeholder={"https://"}
               onChange={handleChange}
-              required={true}
+             
             />
             {errors.image ? (
               <span className="error">{errors.image}</span>
@@ -259,8 +259,11 @@ export default function CreateDog() {
                 })?.name;
 
                 return (
-                  <button className="deleteTemp" onClick={() => handleDelete(el)}>
-                    {tempName} 
+                  <button
+                    className="deleteTemp"
+                    onClick={() => handleDelete(el)}
+                  >
+                    {tempName}
                   </button>
                 );
               })}
@@ -269,13 +272,15 @@ export default function CreateDog() {
 
           <div className="botones">
             <div className="boton">
-              <button className="send" type="submit">
+              <button
+              disabled={errorButton}
+               className="send" type="submit">
                 Create
               </button>
             </div>
 
             <div className="boton">
-              <Link exact to={"/dogs"}>
+              <Link to={"/dogs"}>
                 <button className="send">BACK TO HOME</button>
               </Link>
             </div>

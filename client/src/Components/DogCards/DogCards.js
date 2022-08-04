@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {getDogs} from '../../Redux/Actions'
 import DogCard from "../DogCard/DogCard";
@@ -33,29 +33,14 @@ import './DogCards.css'
     setPage(1)
 },[dogs])    
 
-
-   function handleClick(e){
-      e.preventDefault()
-      dispatch(getDogs())
-
-  } 
   return (
 
-<div className=".contPpal">
-
-
-      
-       {/* perros */}
-    
+<div className="contPpal">
     <div className="tarjeta">
-  
-     
         <div className="card">
       {dogs?.map((dog,i)=>{
         if(inPage(i)){
-          
           return (
-            
 							<DogCard 
               key= {dog.id} 
               id= {dog.id} 
@@ -71,7 +56,7 @@ import './DogCards.css'
       )} 
 
       </div> 
-        {/* paginado */}
+      
     <div>
       
         {

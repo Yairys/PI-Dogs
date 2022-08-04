@@ -10,6 +10,7 @@ export default function DogDetail(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(cleanDetail())
     dispatch(getDetail(props.match.params.id));
 
     return () => dispatch(cleanDetail());

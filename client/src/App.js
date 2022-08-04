@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route,  Switch} from 'react-router-dom';
-import NavBar from './Components/NavBar/NavBar';
 import Landing from './Components/Landing/Landing';
 import Home from './Components/Home/Home';
 import CreateDog from './Components/CreateDog/CreateDog'
@@ -16,8 +15,6 @@ function App() {
     <>
   <Router>
     <Switch>
-   {/*  <Route path="/:any" component={NavBar} /> */}
-   {/*  <Route exact path="/:any" component={FiltersBar} /> */}
     <Route exact path='/' component = {Landing}/>        
     <Route exact path='/dogs' component = {Home}/>        
     <Route exact path= '/dogs/:id' component = {DogDetail}/>  

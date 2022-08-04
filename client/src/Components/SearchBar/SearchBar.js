@@ -21,14 +21,10 @@ function handleSubmit(e){
     else{
     alert("Ingresa un nombre para buscar")
     }
-
 }
 
 return(
-  
- 
-    <form className="searchForm" onSubmit={handleSubmit}>
-     
+    <form className="searchForm" onSubmit={handleSubmit}>   
       <input className="searchInput"
         type="text"
         placeholder="Search a Dog"

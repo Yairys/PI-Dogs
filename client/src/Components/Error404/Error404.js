@@ -9,7 +9,7 @@ export default function Error404(){
   <div className='cont404' >
  
     <div className="volver">  
-            <Link exact to={"/dogs"}>
+            <Link to={"/dogs"}>
               <button className="vlvr">BACK TO HOME</button>
               </Link></div>      
   

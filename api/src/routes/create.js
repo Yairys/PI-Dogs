@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
       max_lifeSpan,
       min_lifeSpan,
       temperament,
-      image,
+      image: image || "https://img.freepik.com/fotos-premium/tres-perros-blanco_87557-12571.jpg?w=2000"
     });
 
     newDog.addTemperament(temperament);
@@ -49,5 +49,9 @@ router.post("/", async (req, res) => {
     return err;
   }
 });
+
+
+
+
 
 module.exports = router;

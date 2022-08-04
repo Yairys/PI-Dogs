@@ -12,7 +12,7 @@ import {
 } from "../../Redux/Actions";
 
 export default function FiltersBar() {
-  const [order, setOrder] = useState("");
+  const [, setOrder] = useState("");
 
   const temperaments = useSelector((state) => state.temperaments);
 
@@ -30,7 +30,6 @@ export default function FiltersBar() {
   function handleSort(e) {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
-    //setCurrentPage(1);
     setOrder(`Ordenado${e.target.value}`);
   }
   function handleSortByWeight(e) {

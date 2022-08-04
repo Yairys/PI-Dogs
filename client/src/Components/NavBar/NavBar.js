@@ -10,7 +10,7 @@ export default function NavBar(){
 <div className="navBar">
  
     <nav className="nav">
-    <div className="logo"><img src={logo} /></div>
+    <div className="logo" ><img alt='' src={logo} /></div>
       
       <ul>
         

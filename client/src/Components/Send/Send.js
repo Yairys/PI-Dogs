@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function Send(){
     return (     
   <div className="contSend" >
-    <img className="imgDog" src={thumb}></img>
+    <img alt='' className="imgDog" src={thumb}></img>
 
     <div className="btnSend">  
             <Link exact to={"/dogs"}>
