@@ -61,7 +61,7 @@ const preCharge= async ()=>{
               filtered=filtered.filter(e=>e !== "")
              
 
-              let modelTemp = filtered.map((e) => {//  nuevo map para 
+              let modelTemp = filtered.map((e) => {
               return {
                   name: e
                   };

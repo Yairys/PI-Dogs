@@ -57,7 +57,7 @@ export default function CreateDog() {
   let handleSelect = (e) => {
     setInput({
       ...input,
-      temperament: ([...input.temperament, e.target.value]),
+      temperament: [...new Set(([...input.temperament, e.target.value]))],
     });
   };
 
@@ -74,7 +74,7 @@ export default function CreateDog() {
     const duplicated = dogs.filter(
       (e) => e.name.toLowerCase() === input.name.toLowerCase()
     );
-    if(input.temperament.length===0) return alert('You must select at least one Temperament')
+    if(input.temperament.length===0) return alert('You must select almost one Temperament')
     if(input.temperament.length>4) return alert('Only 4 temperaments allowed')
     if (duplicated.length) {
       return alert("This Dogs Breed Already Exists");
@@ -145,7 +145,7 @@ export default function CreateDog() {
               false
             )}
             {errors.max_weight ? (
-              <span className="error2">{errors.max_weight}</span>
+              <span className="error">{errors.max_weight}</span>
             ) : (
               false
             )}
@@ -177,7 +177,7 @@ export default function CreateDog() {
               false
             )}
             {errors.max_height ? (
-              <span className="error2">{errors.max_height}</span>
+              <span className="error">{errors.max_height}</span>
             ) : (
               false
             )}

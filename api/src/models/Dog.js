@@ -47,6 +47,10 @@ module.exports = (sequelize) => {
       type:DataTypes.STRING,
       defaultValue: "https://img.freepik.com/fotos-premium/tres-perros-blanco_87557-12571.jpg?w=2000"
      },
+    create:{
+      type:DataTypes.STRING,
+      defaultValue: 'Yairys'
+    }
     
 },
   {

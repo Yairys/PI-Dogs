@@ -35,16 +35,25 @@ export default function rootReducer(state= initialState, action){
         } 
          
       case 'FILTER_CREATED':
+        let dogs= state.dogs
         const createdFilter = action.payload ==='db' ? state.allDogs.filter(e=>e.create) : state.allDogs.filter(e=>!e.create)
-        return{
-          ...state, 
-          dogs: action.payload === 'all' ? state.allDogs : createdFilter
+        if(createdFilter.length ===0){
+          alert('Ops... Nothing there')
+          return{
+            ...state,
+            dogs:dogs
+          }
+        }else{
 
+          return{
+            ...state, 
+            dogs: action.payload === 'all' ? state.allDogs : createdFilter
+  
+          }
         }
 
       case 'ORDER_BY_NAME':
 
-        
         let sortedArr = action.payload === 'asc' ? state.dogs.sort(function(a,b){
           if(a.name > b.name){
             return 1;
@@ -82,7 +91,6 @@ export default function rootReducer(state= initialState, action){
             else if(parseInt(aMin)> parseInt(bMin)) return -1
             else return 0
           }
-  
         }): state.dogs.sort(function(a,b){
           let aMin= a.min_weight
           let aMax= a.max_weight

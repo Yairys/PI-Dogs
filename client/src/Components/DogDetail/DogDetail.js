@@ -12,8 +12,7 @@ export default function DogDetail(props) {
   useEffect(() => {
     dispatch(cleanDetail())
     dispatch(getDetail(props.match.params.id));
-
-    return () => dispatch(cleanDetail());
+    dispatch(cleanDetail());
   }, [dispatch]);
 
   const currentDog = useSelector((state) => state.detail);
@@ -59,8 +58,10 @@ export default function DogDetail(props) {
             </div>
           </div>
         ) : (
+          <div className="contGif">
           <div className="gif">
             <img src={gif} alt="myGif" />
+          </div>
           </div>
         )}
       </div>

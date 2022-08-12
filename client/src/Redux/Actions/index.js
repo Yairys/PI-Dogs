@@ -13,11 +13,10 @@ export const CLEAN_DETAIL = 'CLEAN_DETAIL'
 
 
 
-
 export function getDogs(){
     return async function(dispatch){
         try{
-          let json = await axios.get( 'http://localhost:3001/dogs')
+          let json = await axios.get('http://localhost:3001/dogs')
           return dispatch({
               type: 'GET_DOGS',
               payload: json.data
@@ -26,12 +25,12 @@ export function getDogs(){
           console.log(error)
         } 
     }
-} 
+}  
 
 export function getTemps(){
     return async function(dispatch){
       try{
-        let json = await axios.get( 'http://localhost:3001/temperaments')
+        let json = await axios.get('http://localhost:3001/temperaments')
         return dispatch({
             type: 'GET_TEMPS',
             payload: json.data    
