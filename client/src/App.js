@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route,  Switch} from 'react-router-dom';
-import Landing from './Components/Landing/Landing';
+import LandingPage from './Components/LandingPage/LandingPage';
 import Home from './Components/Home/Home';
 import CreateDog from './Components/CreateDog/CreateDog'
 import DogDetail from './Components/DogDetail/DogDetail'; 
@@ -15,7 +15,7 @@ function App() {
     <>
   <Router>
     <Switch>
-    <Route exact path='/' component = {Landing}/>        
+    <Route exact path='/' component = {LandingPage}/>        
     <Route exact path='/dogs' component = {Home}/>        
     <Route exact path= '/dogs/:id' component = {DogDetail}/>  
     <Route exact path='/create' component = {CreateDog}/>   
