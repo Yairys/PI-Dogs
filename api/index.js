@@ -26,7 +26,7 @@ const {preCharge} = require ("./src/controller/controller")
 
 
 // Syncing all the models at once.
-conn.sync().then( async () => {
+conn.sync({ force: false }).then( async () => {
   await preCharge();
   server.listen(process.env.PORT, () => {
     console.log(" listening at %s", process.env.PORT); // eslint-disable-line no-console
