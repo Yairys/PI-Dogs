@@ -10,7 +10,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 
-axios.defaults.baseURL= process.env.REACT_APP_API || "hhttp://localhost:3001"
+axios.defaults.baseURL= process.env.REACT_APP_API || "http://localhost:3001"
 
 ReactDOM.render(
   <Provider store={store}> {/* // todo lo que esta dentro del provider tiene acceso al store de redux */}

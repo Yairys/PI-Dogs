@@ -23,9 +23,9 @@ export function validate(input) {
    if (parseInt(input.max_height) <= parseInt(input.min_height)) {
     errors.max_height = "(*) Please enter a higher number";
   }
-   if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/.test(input.image)){
+  /*  if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/.test(input.image)){
         errors.image = " (*)Please enter a valid URL (starting with https://)";
-    } 
+    }  */
 
   return errors;
 }
