@@ -20,14 +20,13 @@
 const server = require('./src/app.js');
 const { conn, Temperament} = require('./src/db.js');
 const axios = require ("axios")
-const {preCharge} = require ("./src/controller/controller")
 
 
 
 
 // Syncing all the models at once.
-conn.sync({ force: true}).then( async () => {
-  await preCharge();
+conn.sync().then( async () => {
+  
   server.listen(process.env.PORT, () => {
     console.log(" listening at %s", process.env.PORT); // eslint-disable-line no-console
   });
