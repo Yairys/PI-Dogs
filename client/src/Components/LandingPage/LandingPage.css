@@ -27,6 +27,8 @@
 .landingTitle{
   font-size:5em;
   max-width: 100%;
+  color: red;
+    text-shadow: grey 5px 5px 10px;
 }
 .texto_landing{
   font-size: 1.5em;
@@ -119,8 +121,4 @@ display: none;
     font-size: 3em;
   }
 }
-@media (max-width: 480px){
- 
 
-
-}
