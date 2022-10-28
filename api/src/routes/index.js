@@ -14,7 +14,6 @@ const router = Router();
 
 router.use('/dogs', dogsRoute);
 router.use('/create', createRoute);
-
 router.use('/temperaments', temperamentsRoute)
 
 

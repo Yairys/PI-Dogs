@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    background-image: url('../../Assets/image/opcion1.jpg');
+    background-image: url('../../Assets/opcion1.jpg');
     background-size: 100% 50%;
 }
 .detail{

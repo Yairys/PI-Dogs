@@ -5,6 +5,8 @@ const { Op } = require("sequelize");
 const fetch = require("node-fetch");
 const { getAllDogs } = require("../controller/controller");
 
+
+
 router.get("/", async (req, res) => {
   const { name } = req.query;
   const allDogs = await getAllDogs();
@@ -30,7 +32,7 @@ router.get("/:id", async (req, res) => {
   try {
     if (id) {
       let dogById = allDogs.find((e) => e.id == id);
-      dogById ? res.json(dogById) : res.json({ msg: "ID not found" });
+      dogById ? res.json(dogById) : res.json({ msg: "ID not found" })
     } else {
       res.send(allDogs);
     }

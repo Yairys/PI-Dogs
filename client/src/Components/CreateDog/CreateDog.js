@@ -111,7 +111,7 @@ export default function CreateDog() {
               value={input.name}
               placeholder="Type the Dog's Breed"
               onChange={handleChange}
-              required={true}
+            /*   required={true} */
             />
             {errors.name ? <span className="error">{errors.name}</span> : false}
           </div>

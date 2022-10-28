@@ -7,6 +7,7 @@ const getAllDogs = async()=>{
     
 
     const resultApi = await axios.get('https://api.thedogapi.com/v1/breeds')
+    console.log(resultApi)
         const apiDogs = resultApi.data.map(dog =>{
                 obj={
                     id: dog.id,

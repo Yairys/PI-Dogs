@@ -60,7 +60,7 @@ export function getNameDog(name){
     try{
       let json= await axios.get(`/dogs?name=${name}`)
       return dispatch({
-        type: 'GET_NAME',
+        type: 'GET_BY_NAME',
         payload: json.data
       })
     }catch(error){

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail, cleanDetail } from "../../Redux/Actions";
 import { useEffect } from "react";
-import gif from "../../Assets/image/corgifast.gif";
+import gif from "../../Assets/corgifast.gif";
 import "./DogDetail.css";
 
 export default function DogDetail(props) {

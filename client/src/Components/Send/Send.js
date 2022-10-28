@@ -1,6 +1,6 @@
 import React from "react";
 import './Send.css'
-import thumb from '../../Assets/image/creado.png'
+import thumb from '../../Assets/creado.png'
 import { Link } from "react-router-dom";
 
 
