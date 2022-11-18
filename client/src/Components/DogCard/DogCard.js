@@ -22,11 +22,11 @@ export default function DogCard({
             height=""
           />
         </div>
-        <div className="empty"></div>
+        
 
         <div className="cont_text">
-          <h4 className="name"> {name}</h4>
-          <div className="blur">
+          <h4> {name}</h4>
+          
             <div>
               <p className="card_temp">
                 <b> Temperament: </b>
@@ -36,7 +36,7 @@ export default function DogCard({
                 <b>Weight:</b> {`${min_weight} - ${max_weight} Kg`}{" "}
               </p>
             </div>
-          </div>
+      
         </div>
       </div>
     </Link>

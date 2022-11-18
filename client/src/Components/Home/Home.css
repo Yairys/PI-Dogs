@@ -2,7 +2,11 @@
     display: flex;
     align-items: center;
      flex-direction: column;
+     position: relative;
   
+}
+.cardsCont{
+    margin-top: 50px;
 }
 .midBar{
     width: 100%;
@@ -11,8 +15,9 @@
    align-items: center;
     flex-direction: column;
     margin-top: 40px;
-    
-
+}
+.showBar{
+  display: none;
 }
 
 
@@ -21,7 +26,7 @@
    
 }
 
-.resetYSearch{
+.resetAndSearch{
    
     display: flex;
     align-items: center;
@@ -32,45 +37,43 @@
      height: 100%;
      gap:400px
 }
-.rButton{
+
+
+.hideModal{
+    display: none;
+    margin-top: 30px;
+    position: absolute;
+    left: 50px;
+    border: none;
     cursor: pointer;
- border-radius: 50px;
- border: 0;
- background-color: white;
- box-shadow: rgba(14, 14, 14, 0.3) 3px 5px 15px,
-      rgba(0, 0, 0, 0.1) 10px 10px 10px,
-      rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
-      rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
-padding-left: 10px;
-padding-right: 10px;
+    background: rgb(248, 175, 175);
+    padding: 10px;
+    border-radius: 5px;
 
+}
+.hideModal:hover{
+    background: rgb(245, 101, 101);
+}
+@media (max-width: 1024px){
  
- transition: all .5s ease;
-
-}
-
-.rButton:hover{
+    .hidden{
+        display: none;
+    }
+    .showBar{
+        display: inline;
+        height: 100px;
+        width: 100px;
+        border: solid 3px black;
+    }
+    .hideModal{
+        display: inline;
+        
+    }
+    .cardsCont{
+        margin-top: 100px;
+    }
     
-    background-color: #f8dadaab;
-    color: hsl(0, 0%, 100%);
-    
-}
-
  
-    
-
-.reset button{
-    border: 3px solid rgb(245, 101, 101);
-    display: inline;
-    
-}
-.rButton p{
-    text-transform: uppercase;
-   
-}
-.search{
-    width: 100px;
-    display: inline;
-   
-}
+  }
+  
 

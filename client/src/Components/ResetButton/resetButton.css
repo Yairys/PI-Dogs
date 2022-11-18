@@ -1,0 +1,14 @@
+.rButton {
+   
+    border: none;
+    cursor: pointer;
+    background: rgb(248, 175, 175);
+    padding: 10px;
+    border-radius: 5px;
+  box-shadow: rgba(14, 14, 14, 0.3) 3px 3px 3px;
+}
+  
+  .rButton:hover{
+    background: rgb(245, 101, 101);
+    padding: 10px;
+}

@@ -261,8 +261,8 @@ export default function CreateDog() {
             </div>
           </div>
 
-          <div className="botones">
-            <div className="boton">
+          <div className="buttons">
+            <div className="createButton">
               <button
               disabled={errorButton}
                className="send" type="submit">
@@ -270,7 +270,7 @@ export default function CreateDog() {
               </button>
             </div>
 
-            <div className="boton">
+            <div className="createButton">
               <Link to={"/dogs"}>
                 <button className="send">BACK TO HOME</button>
               </Link>

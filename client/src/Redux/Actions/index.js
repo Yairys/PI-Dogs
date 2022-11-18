@@ -31,6 +31,7 @@ export function getTemps(){
     return async function(dispatch){
       try{
         let json = await axios.get('/temperaments')
+        console.log(json.data)
         return dispatch({
             type: 'GET_TEMPS',
             payload: json.data    

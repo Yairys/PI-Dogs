@@ -1,6 +1,5 @@
 
 .filtersBox{
-    
     display: flex;
     justify-content: center;
    height:180px;
@@ -14,6 +13,8 @@
    
 }
 
+
+
 .filters{
     display: flex;
     align-items: center;
@@ -21,7 +22,7 @@
     
 
 }
-.filters select{
+.selectFilters{
     cursor: pointer;
     width: 200px;
     height: 40px;
@@ -29,4 +30,15 @@
     
 }
 
+/***** Filtros Modal *****/
 
+.filtersModal{
+    display: flex;
+    flex-direction: column;
+    min-height: 90%;
+    gap: 10px
+}
+
+.selectFiltersModal{
+width:  200px;
+}
