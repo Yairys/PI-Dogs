@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -L",
+   
+    "start": "node src/app.js",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "author": "Henry",
@@ -30,6 +31,7 @@
     "chai": "^4.2.0",
     "mocha": "^10.0.0",
     "supertest": "^6.0.1",
-    "supertest-session": "^4.1.0"
+    "supertest-session": "^4.1.0",
+    "dev": "nodemon -L"
   }
 }
