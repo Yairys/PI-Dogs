@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   
+    "dev": "nodemon src/app.js",
     "start": "node src/app.js",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
@@ -31,7 +31,7 @@
     "chai": "^4.2.0",
     "mocha": "^10.0.0",
     "supertest": "^6.0.1",
-    "supertest-session": "^4.1.0",
-    "dev": "nodemon -L"
+    "supertest-session": "^4.1.0"
+    
   }
 }
